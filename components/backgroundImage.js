@@ -8,22 +8,36 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 
-const BackgroundImage = ({ image, backgroundPosition, text, buttonText }) => {
+const BackgroundImage = ({ image, text, buttonText }) => {
 	return (
-		<Flex
-			w={'full'}
-			h={'100vh'}
-			backgroundImage={image}
-			backgroundSize={'cover'}
-			backgroundPosition={backgroundPosition}
+		<div
+			style={{
+				width: 'auto',
+				height: '100vh',
+				position: 'relative',
+				display: 'flex',
+			}}
 		>
+			<Image
+				src={image}
+				layout='fill'
+				objectFit='cover'
+				objectPosition='center'
+				alt='wall art'
+			/>
 			<VStack
 				w={'full'}
 				justify={'center'}
 				px={useBreakpointValue({ base: 4, md: 8 })}
 				bgGradient={'linear(to-r, blackAlpha.600, transparent)'}
 			>
-				<Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+				<Stack
+					maxW={'2xl'}
+					align={'center'}
+					justify={'center'}
+					spacing={6}
+					zIndex={1}
+				>
 					<Text
 						color={'white'}
 						fontWeight={700}
@@ -44,7 +58,8 @@ const BackgroundImage = ({ image, backgroundPosition, text, buttonText }) => {
 					</Stack>
 				</Stack>
 			</VStack>
-		</Flex>
+			{/* </Flex> */}
+		</div>
 	)
 }
 
