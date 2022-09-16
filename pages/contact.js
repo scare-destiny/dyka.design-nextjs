@@ -1,5 +1,5 @@
 import { Navbar, ContactForm, Footer, BackgroundImage } from '../components'
-import Image from 'next/image'
+
 
 
 const Contact = () => {
