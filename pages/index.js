@@ -1,8 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { Navbar, BackgroundImage, About, Footer, Testimonials, Gallery } from '../components'
-import image from '../public/assets/heroimage.webp'
+
 
 export default function Home() {
 	return (
@@ -13,6 +11,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Navbar />
+			{/* // TODO ADD INTERNAL IMAGE INSTEAD OF DOWNLOADED */}
       <BackgroundImage image='https://mir-s3-cdn-cf.behance.net/project_modules/fs/6f4b1a113393045.6026a9d2a3d7c.jpg' backgroundPosition={'center center'} text='test' />
 			<About />
 			<Testimonials />
