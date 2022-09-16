@@ -1,4 +1,3 @@
-import React from 'react'
 import Marquee from './marquee'
 import MarqueeReversed from './marqueeReversed'
 import styles from './Gallery.module.css'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, chakra, Flex } from '@chakra-ui/react'
 import styles from './About.module.css'
 
