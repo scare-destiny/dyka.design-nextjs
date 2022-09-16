@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 
-const BackgroundImage = ({ image, text, buttonText }) => {
+const BackgroundImage = ({ image, text, buttonText, }) => {
 	return (
 		<div
 			style={{
@@ -20,6 +20,7 @@ const BackgroundImage = ({ image, text, buttonText }) => {
 		>
 			<Image
 				src={image}
+				priority={true}
 				layout='fill'
 				objectFit='cover'
 				objectPosition='center'
