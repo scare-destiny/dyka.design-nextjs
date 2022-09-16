@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Navbar, BackgroundImage, About, Footer, Testimonials, Gallery } from '../components'
+import image from '../public/assets/commercial-3.webp'
 
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
 			</Head>
 			<Navbar />
 			{/* // TODO ADD INTERNAL IMAGE INSTEAD OF DOWNLOADED */}
-      <BackgroundImage image='https://mir-s3-cdn-cf.behance.net/project_modules/fs/6f4b1a113393045.6026a9d2a3d7c.jpg' backgroundPosition={'center center'} text='test' />
+      <BackgroundImage image={image} backgroundPosition={'center center'} text='test' />
 			<About />
 			<Testimonials />
 			<Gallery/>
@@ -20,3 +21,4 @@ export default function Home() {
 		</>
 	)
 }
+
