@@ -18,7 +18,6 @@
 }
 
 
-
 .marquee {
 	--duration: 60s;
 	--gap: var(--space);
@@ -55,7 +54,7 @@
 .marquee__group * img {
 	min-width: 10vh;
 	max-width: clamp(10rem, 1rem + 28vmin, 25rem) !important;
-	aspect-ratio: 1.4;
+	aspect-ratio: 1.4 !important;
 	object-fit: cover;
 }
 
