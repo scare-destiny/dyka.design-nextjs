@@ -54,7 +54,7 @@
 
 .marquee__group * img {
 	min-width: 10vh;
-	max-width: clamp(10rem, 1rem + 28vmin, 25rem);
+	max-width: clamp(10rem, 1rem + 28vmin, 25rem) !important;
 	aspect-ratio: 1.4;
 	object-fit: cover;
 }

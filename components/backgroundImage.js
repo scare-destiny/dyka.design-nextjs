@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 
-const BackgroundImage = ({ image, text, buttonText, }) => {
+const BackgroundImage = ({ image, sizes, alt, text, buttonText, priority }) => {
 	return (
 		<div
 			style={{
@@ -20,11 +20,14 @@ const BackgroundImage = ({ image, text, buttonText, }) => {
 		>
 			<Image
 				src={image}
-				priority={true}
+				sizes={sizes}
+				priority={priority}
 				layout='fill'
 				objectFit='cover'
 				objectPosition='center'
-				alt='wall art'
+				alt={alt}
+				quality={100}
+
 			/>
 			<VStack
 				w={'full'}

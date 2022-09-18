@@ -11,48 +11,18 @@ const Marquee = () => {
 		<>
 			<div className={styles.marquee}>
 				<div className={styles.marquee__group}>
-					<Image
-						src={image1}
-						alt=''
-					/>
-					<Image
-						src={image2}
-						alt='marquee image'
-					/>
-					<Image
-						src={image3}
-						alt='marquee image'
-					/>
-					<Image
-						src={image4}
-						alt='marquee image'
-					/>
-					<Image
-						src={image5}
-						alt='marquee image'
-					/>
+					<Image src={image1} alt='' />
+					<Image src={image2} alt='marquee image' />
+					<Image src={image3} alt='marquee image' />
+					<Image src={image4} alt='marquee image' />
+					<Image src={image5} alt='marquee image' />
 				</div>
 				<div aria-hidden='true' className={styles.marquee__group}>
-					<Image
-						src={image1}
-						alt='marquee image'
-					/>
-					<Image
-						src={image2}
-						alt='marquee image'
-					/>
-					<Image
-						src={image3}
-						alt='marquee image'
-					/>
-					<Image
-						src={image4}
-						alt='marquee image'
-					/>
-					<Image
-						src={image5}
-						alt='marquee image'
-					/>
+					<Image src={image1} alt='marquee image' />
+					<Image src={image2} alt='marquee image' />
+					<Image src={image3} alt='marquee image' />
+					<Image src={image4} alt='marquee image' />
+					<Image src={image5} alt='marquee image' />
 				</div>
 			</div>
 		</>

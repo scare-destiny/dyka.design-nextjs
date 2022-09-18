@@ -1,5 +1,5 @@
 import { Navbar, ContactForm, Footer, BackgroundImage } from '../components'
-
+import image from '../public/assets/commercial-4.webp'
 
 
 const Contact = () => {
@@ -8,7 +8,11 @@ const Contact = () => {
 			<Navbar />
 			<BackgroundImage
 				// TODO ADD INTERNAL IMAGE INSTEAD OF DOWNLOADED
-				image='https://mir-s3-cdn-cf.behance.net/project_modules/fs/6f4b1a113393045.6026a9d2a3d7c.jpg'
+				image={image}
+				sizes="(max-width: 768px) 100vw,
+				(max-width: 1200px) 30vw,
+				30vw"
+				alt='art image'
 				backgroundPosition={'center center'}
 				text='test'
 				buttonText='Contact Me'

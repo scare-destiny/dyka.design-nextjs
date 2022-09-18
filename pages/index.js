@@ -1,7 +1,13 @@
 import Head from 'next/head'
-import { Navbar, BackgroundImage, About, Footer, Testimonials, Gallery } from '../components'
+import {
+	Navbar,
+	BackgroundImage,
+	About,
+	Footer,
+	Testimonials,
+	Gallery,
+} from '../components'
 import image from '../public/assets/commercial-3.webp'
-
 
 export default function Home() {
 	return (
@@ -13,12 +19,19 @@ export default function Home() {
 			</Head>
 			<Navbar />
 			{/* // TODO ADD INTERNAL IMAGE INSTEAD OF DOWNLOADED */}
-      <BackgroundImage image={image} backgroundPosition={'center center'} text='test' />
+			<BackgroundImage
+				image={image}
+				sizes='(max-width: 768px) 100vw,
+				(max-width: 1200px) 50vw,
+				33vw'
+				alt='le jardin shop'
+				backgroundPosition={'center center'}
+				priority={true}
+			/>
 			<About />
 			<Testimonials />
-			<Gallery/>
-      <Footer/>
+			<Gallery />
+			<Footer />
 		</>
 	)
 }
-

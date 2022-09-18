@@ -11,6 +11,7 @@ import {
 	Stack,
 } from '@chakra-ui/react'
 
+// TODO Rewrite Form Without Dependencies
 const ContactForm = () =>  {
 	const {
 		handleSubmit,
@@ -35,7 +36,7 @@ const ContactForm = () =>  {
 				</Heading>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<FormControl isInvalid={errors.name}>
-						<FormLabel htmlFor='name'>First Name</FormLabel>
+						<FormLabel pt={2} htmlFor='name'>First Name</FormLabel>
 						<Input
 							id='name'
 							placeholder='name'
@@ -47,10 +48,10 @@ const ContactForm = () =>  {
 						<FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
 					</FormControl>
 					<FormControl isInvalid={errors.mail}>
-						<FormLabel htmlFor='mail'>Email address</FormLabel>
+						<FormLabel pt={2} htmlFor='mail'>Email address</FormLabel>
 						<Input
 							id='mail'
-							placeholder='mail'
+							placeholder='email'
 							{...register('mail', {
 								required: 'Email address is required',
 								minlength: { value: 4, message: 'Minimum lenght should be 4' },
@@ -63,15 +64,16 @@ const ContactForm = () =>  {
 						<FormErrorMessage>{errors.mail && errors.mail.message}</FormErrorMessage>
 					</FormControl>
 					<FormControl isInvalid={errors.text}>
-						<FormLabel htmlFor='text'>How can I help</FormLabel>
-						<Textarea 
+						<FormLabel pt={2} htmlFor='text'>Info</FormLabel>
+						<Textarea
 							id='text'
 							placeholder='I want a new design for my...'
 							{...register('text', {
-								required: 'Please share a few words on your needs',
-								minlength: { value: 2, message: 'Minimum lenght should be 4' },
+								required: 'Please share a few words about your request',
+								minlength: { value: 12, message: '' },
 							})}
 						/>
+						<FormErrorMessage>{errors.text && errors.text.message}</FormErrorMessage>
 					</FormControl>
 					<Button mt={4} colorScheme='gray' isLoading={isSubmitting} type='submit'>
 						Submit

@@ -12,7 +12,7 @@ const testimonials = [
 	{
 		name: 'Sasha',
 		content:
-			"Anastasiia is an absolutely phenomenal professional. She has delivered above and beyond and we're very excited to work with her even more in the future. We have asked for the decor for part of our office, but looking to get more done now after seeing what she has delivered",
+			"Anastasiia is an absolutely phenomenal professional. She has delivered above and beyond and we're very excited to work with her even more in the future. We have asked for the decor for part of our office, but looking to get more done now after seeing what she has delivered.",
 		avatar: (
 			<svg
 				viewBox='0 0 36 36'
@@ -137,7 +137,7 @@ const testimonials = [
 	{
 		name: 'Darcy L.',
 		content:
-			"Second time working with Anastasiia on a project and it's even better than the last. Very impressed with her work and communication. Strongly recommended as a true professional",
+			"Second time working with Anastasiia on a project and it's even better than the last. Very impressed with her work and communication. Strongly recommended as a true professional.",
 		avatar: (
 			<svg
 				viewBox='0 0 36 36'
@@ -349,7 +349,7 @@ const Testimonials = () => {
 					textTransform={'uppercase'}
 					color={'#C1AC8D'}
 				>
-					CLIENTS&apos LOVE
+					Testimonials
 				</chakra.h3>
 				<chakra.h1
 					py={5}
