@@ -23,7 +23,7 @@ const Portfolio = () => {
 		const images = gsap.utils.toArray('img')
 		const showDemo = () => {
 			document.body.style.overflow = 'auto'
-			document.scrollingElement.scrollTo(0, 0)
+			// document.scrollingElement.scrollTo(0, 0)
 			console.log(gsap.utils.toArray('section'))
 			gsap.utils.toArray('section').forEach((section, index) => {
 				const w = section.querySelector('.scrollTrigger_wrapper__hOkTR')
