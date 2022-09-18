@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { Heading } from '../containers/index'
@@ -18,19 +18,18 @@ import commercial10 from '../public/assets/commercial-10.webp'
 
 // Source - https://codepen.io/noeldelgado/pen/BaogqYy
 const Portfolio = () => {
-	useEffect(() => {
+	useLayoutEffect(() => {
 		gsap.registerPlugin(ScrollTrigger)
 		const images = gsap.utils.toArray('img')
 		const showDemo = () => {
 			// document.body.style.overflow = 'auto'
 			// document.scrollingElement.scrollTo(0, 0)
-			console.log(gsap.utils.toArray('section'))
 			gsap.utils.toArray('section').forEach((section, index) => {
 				const w = section.querySelector('.scrollTrigger_wrapper__hOkTR')
 				const [x, xEnd] =
 					index % 2
-						? ['100%', (w.scrollWidth - section.offsetWidth) * -1]
-						: [w.scrollWidth * -1, 0]
+						? ['100%', (w.scrollWidth - section.offsetWidth) * -1.6]
+						: [w.scrollWidth * -1.6, 0]
 				gsap.fromTo(
 					w,
 					{ x },
@@ -151,7 +150,7 @@ const Portfolio = () => {
 					</ul>
 				</section>
 				<section className={styles.demoText}>
-					<div className={styles.wrapper}>COMMERCIAL PROJECTS</div>
+					<div className={styles.wrapper}></div>
 				</section>
 			</div>
 		</div>
