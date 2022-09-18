@@ -1,7 +1,6 @@
 import { useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import { Heading } from '../containers/index'
 import Image from 'next/image'
 import styles from './Portfolio.module.css'
 
@@ -57,7 +56,8 @@ const contents = [
 		image: commercial10,
 	},
 ]
-// TODO SERVER DIFFERENT IMAGES FOR mobile
+// TODO ASK ON GSAP Forum How to make it work with nextjs
+// SOURCE https://codepen.io/scare-destiny/pen/KKRmgGw
 const PortfolioNew = () => {
 	gsap.registerPlugin(ScrollTrigger)
 
@@ -67,7 +67,6 @@ const PortfolioNew = () => {
 		const polygonTo = 'polygon(0% -100%, 100% -100%, 100% 0%, 0% 0%)'
 		// const polygonFrom = 'polygon(0% 100%, 100% 120%, 100% 220%, 0% 200%)'
 		// const polygonTo = 'polygon(0% -120%, 100% -100%, 100% 0%, 0% -20%)'
-		console.log(contents.length)
 		for (i = 0; i < contents.length; i++) {
 			gsap.fromTo(
 				'.section:nth-child(' + (i + 1) + ') .title',
@@ -80,15 +79,15 @@ const PortfolioNew = () => {
 					scrollTrigger: {
 						// markers: true,
 						trigger: '.section:nth-child(' + (i + 1) + ')',
-						start: 'top center',
-						end: 'bottom top',
+						start: 'top center+=300px',
+						end: 'bottom-=300px top',
 						scrub: true,
 					},
-				},
+				}
 			)
 
 			gsap.fromTo(
-				'.section:nth-child(' + (i + 1) + ') .coolImg',
+				'.section:nth-child(' + (i + 1) + ') .graphic',
 				{
 					clipPath: polygonFrom,
 					backgroundPositionY: '60px',
@@ -128,6 +127,10 @@ const PortfolioNew = () => {
 								font-size: 3rem;
 								overflow: hidden;
 							}
+							,
+							.app {
+								padding: 1000px;
+							}
 						`}</style>
 						<div
 							className='test'
@@ -137,28 +140,13 @@ const PortfolioNew = () => {
 							// 	height: '100%',
 							// }}
 						>
-							<Image src={content.image} alt='portfolio image' className='coolImg' />
+							<Image
+								src={content.image}
+								alt='portfolio image'
+								className='coolImg'
+								id='grah'
+							/>
 						</div>
-						<style jsx>
-							{`
-								.coolImg {
-									position: fixed;
-									top: 0;
-									left: 0;
-									z-index: 1;
-									width: 100vw;
-									height: 100vh;
-									background-size: cover;
-								}
-								,
-								.section {
-									position: relative;
-									width: 100%;
-									height: 100vh;
-									background-size: cover;
-								}
-							`}
-						</style>
 					</section>
 				))}
 			</div>

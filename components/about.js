@@ -1,5 +1,4 @@
 import { Box, chakra, Flex } from '@chakra-ui/react'
-import { Heading } from '../containers/index'
 import styles from './About.module.css'
 
 const About = () => (
@@ -12,8 +11,8 @@ const About = () => (
 		width={'full'}
 	>
 		<div className={styles.wrapper}>
-			<Heading text='Welcome to Dyka Design' />
 			<div className={styles.container}>
+				<h1 className={styles.heading}>WELCOME TO DYKA DESIGN</h1>
 			</div>
 		</div>
 		<Box width={{ base: 'full', sm: 'lg', lg: 'xl' }} margin={'auto'}>
