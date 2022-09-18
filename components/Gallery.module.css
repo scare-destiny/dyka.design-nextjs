@@ -1,8 +1,6 @@
 .container {
 	min-height: 15vh;
-
 	--space: 1rem;
-
 	display: grid;
 	align-content: center;
 	overflow: hidden;
@@ -18,6 +16,7 @@
 }
 
 
+
 .marquee {
 	--duration: 60s;
 	--gap: var(--space);
@@ -30,8 +29,8 @@
 }
 
 @media screen and (max-width: 400px) {
-.container *	img {
-		min-height: 15vh;
+	.marquee {
+		min-height: 15vh !important;
 	}
 }
 
@@ -51,11 +50,10 @@
 	}
 }
 
-.marquee__group * img {
-	min-width: 10vh;
-	max-width: clamp(10rem, 1rem + 28vmin, 25rem) !important;
+.marquee__group * {
+	max-width: clamp(15rem, 1rem + 28vmin, 25rem) !important;
 	aspect-ratio: 1.4 !important;
-	object-fit: cover;
+	object-fit: cover !important;
 }
 
 .marquee--reverse .marquee__group {
