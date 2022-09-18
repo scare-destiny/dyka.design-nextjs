@@ -29,7 +29,7 @@ const Portfolio = () => {
 				const w = section.querySelector('.scrollTrigger_wrapper__hOkTR')
 				const [x, xEnd] =
 					index % 2
-						? ['100%', (w.scrollWidth - section.offsetWidth) * -1]
+						? ['0%', (w.scrollWidth - section.offsetWidth) * -1]
 						: [w.scrollWidth * -1, 0]
 				gsap.fromTo(
 					w,
@@ -45,7 +45,13 @@ const Portfolio = () => {
 			})
 		}
 		showDemo()
-		return;
+		return () => {
+			ScrollTrigger.getAll().forEach((t) => t.kill())
+
+			// try killing individual timelines also
+			mobileTimeline.current.kill()
+			desktopTimeline.current.kill()
+		}
 	}, [])
 
 	return (
@@ -150,11 +156,6 @@ const Portfolio = () => {
 				<section className={styles.demoText}>
 					<div className={styles.wrapper}>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
 				</section>
-				<footer className='df aic jcc'>
-					<p>
-						Images from <a href='https://source.unsplash.com/random/'>Unsplash</a>
-					</p>
-				</footer>
 			</div>
 		</div>
 	)
