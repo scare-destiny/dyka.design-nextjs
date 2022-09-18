@@ -45,6 +45,7 @@ const Portfolio = () => {
 			})
 		}
 		showDemo()
+		return;
 	}, [])
 
 	return (
