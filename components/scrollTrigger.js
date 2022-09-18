@@ -29,7 +29,7 @@ const Portfolio = () => {
 				const w = section.querySelector('.scrollTrigger_wrapper__hOkTR')
 				const [x, xEnd] =
 					index % 2
-						? ['0%', (w.scrollWidth - section.offsetWidth) * -1]
+						? ['100%', (w.scrollWidth - section.offsetWidth) * -1]
 						: [w.scrollWidth * -1, 0]
 				gsap.fromTo(
 					w,
@@ -47,7 +47,6 @@ const Portfolio = () => {
 		showDemo()
 		return () => {
 			ScrollTrigger.getAll().forEach((t) => t.kill())
-			killed = true
 		}
 	}, [])
 
@@ -151,7 +150,7 @@ const Portfolio = () => {
 					</ul>
 				</section>
 				<section className={styles.demoText}>
-					<div className={styles.wrapper}>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+					<div className={styles.wrapper}>COMMERCIAL PROJECTS</div>
 				</section>
 			</div>
 		</div>
