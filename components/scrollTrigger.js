@@ -22,7 +22,7 @@ const Portfolio = () => {
 		gsap.registerPlugin(ScrollTrigger)
 		const images = gsap.utils.toArray('img')
 		const showDemo = () => {
-			document.body.style.overflow = 'auto'
+			// document.body.style.overflow = 'auto'
 			// document.scrollingElement.scrollTo(0, 0)
 			console.log(gsap.utils.toArray('section'))
 			gsap.utils.toArray('section').forEach((section, index) => {
@@ -38,12 +38,13 @@ const Portfolio = () => {
 						x: xEnd,
 						scrollTrigger: {
 							trigger: section,
-							scrub: 0.5,
+							scrub: 0.3,
 						},
 					}
 				)
 			})
 		}
+		ScrollTrigger.getAll().forEach((t) => t.kill())
 		showDemo()
 		return () => {
 			ScrollTrigger.getAll().forEach((t) => t.kill())
