@@ -38,7 +38,7 @@ const Portfolio = () => {
 						x: xEnd,
 						scrollTrigger: {
 							trigger: section,
-							scrub: 0.3,
+							scrub: 0.5,
 						},
 					}
 				)
