@@ -47,10 +47,7 @@ const Portfolio = () => {
 		showDemo()
 		return () => {
 			ScrollTrigger.getAll().forEach((t) => t.kill())
-
-			// try killing individual timelines also
-			mobileTimeline.current.kill()
-			desktopTimeline.current.kill()
+			killed = true
 		}
 	}, [])
 
