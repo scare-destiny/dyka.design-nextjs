@@ -9,9 +9,6 @@ const Contact = () => {
 			<BackgroundImage
 				// TODO ADD INTERNAL IMAGE INSTEAD OF DOWNLOADED
 				image={image}
-				sizes="(max-width: 768px) 100vw,
-				(max-width: 1200px) 30vw,
-				30vw"
 				priority={true}
 				alt='art image'
 				backgroundPosition={'center center'}

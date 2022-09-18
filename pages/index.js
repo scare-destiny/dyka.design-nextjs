@@ -21,9 +21,6 @@ export default function Home() {
 			{/* // TODO ADD INTERNAL IMAGE INSTEAD OF DOWNLOADED */}
 			<BackgroundImage
 				image={image}
-				sizes='(max-width: 768px) 100vw,
-				(max-width: 1200px) 50vw,
-				33vw'
 				alt='le jardin shop'
 				backgroundPosition={'center center'}
 				priority={true}
