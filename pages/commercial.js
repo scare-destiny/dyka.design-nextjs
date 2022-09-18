@@ -1,4 +1,4 @@
-import { Navbar, ContactForm, Footer, BackgroundImage, ScrollTrigger } from '../components'
+import { Navbar, ContactForm, Footer, BackgroundImage, ScrollTrigger, PortfolioNew } from '../components'
 import image from '../public/assets/commercial-4.webp'
 
 
@@ -15,7 +15,8 @@ const Contact = () => {
 				text='test'
 				buttonText='Contact Me'
 			/>
-			<ScrollTrigger/>
+			{/* <ScrollTrigger/> */}
+			<PortfolioNew/>
 			<Footer />
 		</>
 	)

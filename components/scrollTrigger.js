@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { Heading } from '../containers/index'
@@ -18,38 +18,55 @@ import commercial10 from '../public/assets/commercial-10.webp'
 
 // Source - https://codepen.io/noeldelgado/pen/BaogqYy
 const Portfolio = () => {
-	useLayoutEffect(() => {
-		gsap.registerPlugin(ScrollTrigger)
-		const images = gsap.utils.toArray('img')
-		const showDemo = () => {
-			// document.body.style.overflow = 'auto'
-			// document.scrollingElement.scrollTo(0, 0)
-			gsap.utils.toArray('section').forEach((section, index) => {
-				const w = section.querySelector('.scrollTrigger_wrapper__hOkTR')
-				const [x, xEnd] =
-					index % 2
-						? ['100%', (w.scrollWidth - section.offsetWidth) * -1.6]
-						: [w.scrollWidth * -1.6, 0]
-				gsap.fromTo(
-					w,
-					{ x },
-					{
-						x: xEnd,
-						scrollTrigger: {
-							trigger: section,
-							scrub: 0.5,
-						},
-					}
-				)
-			})
-		}
-		ScrollTrigger.getAll().forEach((t) => t.kill())
-		showDemo()
-		return () => {
-			ScrollTrigger.getAll().forEach((t) => t.kill())
+	gsap.registerPlugin(ScrollTrigger)
+
+	useEffect(() => {
+		let i = 0
+		const polygonFrom = 'polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%)'
+		const polygonTo = 'polygon(0% -100%, 100% -100%, 100% 0%, 0% 0%)'
+		// const polygonFrom = 'polygon(0% 100%, 100% 120%, 100% 220%, 0% 200%)'
+		// const polygonTo = 'polygon(0% -120%, 100% -100%, 100% 0%, 0% -20%)'
+		console.log(contents.length)
+		for (i = 0; i < contents.length; i++) {
+			gsap.fromTo(
+				'.section:nth-child(' + (i + 1) + ') .title',
+				{
+					clipPath: polygonFrom,
+				},
+				{
+					clipPath: polygonTo,
+					ease: 'linear',
+					scrollTrigger: {
+						// markers: true,
+						trigger: '.section:nth-child(' + (i + 1) + ')',
+						start: 'top center+=300px',
+						end: 'bottom-=300px top',
+						scrub: true,
+					},
+				},
+			)
+
+			gsap.fromTo(
+				'.section:nth-child(' + (i + 1) + ') .graphic',
+				{
+					clipPath: polygonFrom,
+					backgroundPositionY: '60px',
+				},
+				{
+					clipPath: polygonTo,
+					backgroundPositionY: '-60px',
+					ease: 'linear',
+					scrollTrigger: {
+						// markers: true,
+						trigger: '.section:nth-child(' + (i + 1) + ')',
+						start: 'top bottom',
+						end: 'bottom top',
+						scrub: true,
+					},
+				}
+			)
 		}
 	}, [])
-
 	return (
 		<div className={styles.mainContainer}>
 			<div className={styles.demoWrapper}>
