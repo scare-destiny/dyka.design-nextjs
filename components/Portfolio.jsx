@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Image from 'next/image'
@@ -57,11 +57,11 @@ const contents = [
 	},
 ]
 // TODO ASK ON GSAP Forum How to make it work with nextjs
-// SOURCE https://codepen.io/scare-destiny/pen/KKRmgGw
+// SOURCE v
 const PortfolioNew = () => {
 	gsap.registerPlugin(ScrollTrigger)
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		let i = 0
 		const polygonFrom = 'polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%)'
 		const polygonTo = 'polygon(0% -100%, 100% -100%, 100% 0%, 0% 0%)'
@@ -79,15 +79,15 @@ const PortfolioNew = () => {
 					scrollTrigger: {
 						// markers: true,
 						trigger: '.section:nth-child(' + (i + 1) + ')',
-						start: 'top center+=300px',
-						end: 'bottom-=300px top',
+						start: 'top center+=400px',
+						end: 'bottom-=500px top',
 						scrub: true,
 					},
 				}
 			)
 
 			gsap.fromTo(
-				'.section:nth-child(' + (i + 1) + ') .graphic',
+				'.section:nth-child(' + (i + 1) + ') #coolImg',
 				{
 					clipPath: polygonFrom,
 					backgroundPositionY: '60px',
@@ -108,14 +108,32 @@ const PortfolioNew = () => {
 		}
 	}, [])
 	// TODO ADD Inline Styles For Title
+	const imageStyle = {
+		position: 'fixed',
+		top: '0',
+		left: '0',
+		zIndex: '1',
+		width: '100vw',
+		height: '100vh',
+		backgroundSize: 'cover',
+	}
+
 	return (
 		<div className={styles.scrollTriggerContainer}>
 			<div className='app'>
 				{contents.map((content, index) => (
-					<section className='section' key={index}>
+					<section className='section' key={index} id={styles.section}>
 						<h1 className={'title'} id='title'>
 							{content.title}
 						</h1>
+						<div 				style={imageStyle}>
+						<Image
+							src={content.image}
+							alt='portfolio image'
+							id='coolImg'
+							layout='fill'
+							/>
+							</div>
 						<style jsx>{`
 							.title {
 								position: fixed;
@@ -127,26 +145,7 @@ const PortfolioNew = () => {
 								font-size: 3rem;
 								overflow: hidden;
 							}
-							,
-							.app {
-								padding: 1000px;
-							}
 						`}</style>
-						<div
-							className='test'
-							// style={{
-							// 	backgroundImage: `url(${commercial1})`,
-							// 	width: '100%',
-							// 	height: '100%',
-							// }}
-						>
-							<Image
-								src={content.image}
-								alt='portfolio image'
-								className='coolImg'
-								id='grah'
-							/>
-						</div>
 					</section>
 				))}
 			</div>

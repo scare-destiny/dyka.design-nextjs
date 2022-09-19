@@ -31,7 +31,7 @@ const Gallery = () => {
 					<Image src={image5} alt='marquee image' />
 				</div>
 			</div>
-			<div className={styles.marquee}>
+			<div className={styles.marquee} id='marqueeReversed' >
 				<div className={styles.marquee__group}>
 					<Image src={image6} alt='' />
 					<Image src={image7} alt='marquee image' />
@@ -46,8 +46,25 @@ const Gallery = () => {
 					<Image src={image9} alt='marquee image' />
 					<Image src={image10} alt='marquee image' />
 				</div>
-				</div>
-				</div>
+				<style jsx>{`
+        #marqueeReversed {
+      		animation-direction: reverse;
+					animation-delay: calc(var(--duration) / -2);
+					@keyframes scroll {
+						0% {
+							transform: translateX(0);
+						}
+					
+						100% {
+							transform: translateX(calc(-100% - var(--gap)));
+						}
+					}
+        }
+
+      `}</style>
+			</div>
+		</div>
+		
 	)
 }
 
