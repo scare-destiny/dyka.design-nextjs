@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import {chakra, Box, Container, useColorModeValue, Wrap, WrapItem } from '@chakra-ui/react'
 import Image from 'next/image'
-import styles from './Portfolio.module.css'
 
 import commercial1 from '../public/assets/commercial-1.webp'
 import commercial2 from '../public/assets/commercial-2.webp'
@@ -14,6 +12,7 @@ import commercial7 from '../public/assets/commercial-7.webp'
 import commercial8 from '../public/assets/commercial-8.webp'
 import commercial9 from '../public/assets/commercial-9.webp'
 import commercial10 from '../public/assets/commercial-10.webp'
+
 const contents = [
 	{
 		title: 'Проєкт намбер 1',
@@ -56,101 +55,78 @@ const contents = [
 		image: commercial10,
 	},
 ]
-// TODO ASK ON GSAP Forum How to make it work with nextjs
-// SOURCE v
-const PortfolioNew = () => {
-	gsap.registerPlugin(ScrollTrigger)
 
-	useEffect(() => {
-		let i = 0
-		const polygonFrom = 'polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%)'
-		const polygonTo = 'polygon(0% -100%, 100% -100%, 100% 0%, 0% 0%)'
-		// const polygonFrom = 'polygon(0% 100%, 100% 120%, 100% 220%, 0% 200%)'
-		// const polygonTo = 'polygon(0% -120%, 100% -100%, 100% 0%, 0% -20%)'
-		for (i = 0; i < contents.length; i++) {
-			gsap.fromTo(
-				'.section:nth-child(' + (i + 1) + ') .title',
-				{
-					clipPath: polygonFrom,
-				},
-				{
-					clipPath: polygonTo,
-					ease: 'linear',
-					scrollTrigger: {
-						// markers: true,
-						trigger: '.section:nth-child(' + (i + 1) + ')',
-						start: 'top center+=400px',
-						end: 'bottom-=500px top',
-						scrub: true,
-					},
-				}
-			)
 
-			gsap.fromTo(
-				'.section:nth-child(' + (i + 1) + ') #coolImg',
-				{
-					clipPath: polygonFrom,
-					backgroundPositionY: '60px',
-				},
-				{
-					clipPath: polygonTo,
-					backgroundPositionY: '-60px',
-					ease: 'linear',
-					scrollTrigger: {
-						// markers: true,
-						trigger: '.section:nth-child(' + (i + 1) + ')',
-						start: 'top bottom',
-						end: 'bottom top',
-						scrub: true,
-					},
-				}
-			)
-		}
-	}, [])
-	// TODO ADD Inline Styles For Title
-	const imageStyle = {
-		position: 'fixed',
-		top: '0',
-		left: '0',
-		zIndex: '1',
-		width: '100vw',
-		height: '100vh',
-		backgroundSize: 'cover',
-	}
+const Portfolio = (props) => {
+	const { index } = props
+	
+	const backgrounds = [
+		`url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='185' viewBox='0 0 560 185' fill='none'%3E%3Cellipse cx='102.633' cy='61.0737' rx='102.633' ry='61.0737' fill='%23ED64A6' /%3E%3Cellipse cx='399.573' cy='123.926' rx='102.633' ry='61.0737' fill='%23F56565' /%3E%3Cellipse cx='366.192' cy='73.2292' rx='193.808' ry='73.2292' fill='%2338B2AC' /%3E%3Cellipse cx='222.705' cy='110.585' rx='193.808' ry='73.2292' fill='%23ED8936' /%3E%3C/svg%3E")`,
+		`url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='185' viewBox='0 0 560 185' fill='none'%3E%3Cellipse cx='457.367' cy='123.926' rx='102.633' ry='61.0737' transform='rotate(-180 457.367 123.926)' fill='%23ED8936'/%3E%3Cellipse cx='160.427' cy='61.0737' rx='102.633' ry='61.0737' transform='rotate(-180 160.427 61.0737)' fill='%2348BB78'/%3E%3Cellipse cx='193.808' cy='111.771' rx='193.808' ry='73.2292' transform='rotate(-180 193.808 111.771)' fill='%230BC5EA'/%3E%3Cellipse cx='337.295' cy='74.415' rx='193.808' ry='73.2292' transform='rotate(-180 337.295 74.415)' fill='%23ED64A6'/%3E%3C/svg%3E")`,
+		`url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='185' viewBox='0 0 560 185' fill='none'%3E%3Cellipse cx='102.633' cy='61.0737' rx='102.633' ry='61.0737' fill='%23ED8936'/%3E%3Cellipse cx='399.573' cy='123.926' rx='102.633' ry='61.0737' fill='%2348BB78'/%3E%3Cellipse cx='366.192' cy='73.2292' rx='193.808' ry='73.2292' fill='%230BC5EA'/%3E%3Cellipse cx='222.705' cy='110.585' rx='193.808' ry='73.2292' fill='%23ED64A6'/%3E%3C/svg%3E")`,
+		`url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='185' viewBox='0 0 560 185' fill='none'%3E%3Cellipse cx='457.367' cy='123.926' rx='102.633' ry='61.0737' transform='rotate(-180 457.367 123.926)' fill='%23ECC94B'/%3E%3Cellipse cx='160.427' cy='61.0737' rx='102.633' ry='61.0737' transform='rotate(-180 160.427 61.0737)' fill='%239F7AEA'/%3E%3Cellipse cx='193.808' cy='111.771' rx='193.808' ry='73.2292' transform='rotate(-180 193.808 111.771)' fill='%234299E1'/%3E%3Cellipse cx='337.295' cy='74.415' rx='193.808' ry='73.2292' transform='rotate(-180 337.295 74.415)' fill='%2348BB78'/%3E%3C/svg%3E")`,
+	]
 
+	
 	return (
-		<div className={styles.scrollTriggerContainer}>
-			<div className='app'>
-				{contents.map((content, index) => (
-					<section className='section' key={index} id={styles.section}>
-						<h1 className={'title'} id='title'>
-							{content.title}
-						</h1>
-						<div 				style={imageStyle}>
-						<Image
-							src={content.image}
-							alt='portfolio image'
-							id='coolImg'
-							layout='fill'
+		<Box p={4}  overflow='hidden' minH='100vh'>
+			<Container 	pb={10} align='center'>
+			<chakra.h3
+					fontFamily={'Work Sans'}
+					fontWeight={'bold'}
+					fontSize={20}
+					textTransform={'uppercase'}
+					color={'#C1AC8D'}
+				>
+					Testimonials
+				</chakra.h3>
+				<chakra.h1
+					py={5}
+					fontSize={48}
+					fontFamily={'Work Sans'}
+					fontWeight={'bold'}
+					color={useColorModeValue('gray.700', 'gray.50')}
+				>
+					What my clients say
+				</chakra.h1>
+				<chakra.h2
+					margin={'auto'}
+					width={'70%'}
+					fontFamily={'Inter'}
+					fontWeight={'medium'}
+					color={useColorModeValue('gray.500', 'gray.400')}
+				>
+					See why over{' '}
+					<chakra.strong color={useColorModeValue('gray.700', 'gray.50')}>
+						50
+					</chakra.strong>{' '}
+					clients love my work
+				</chakra.h2>
+				</Container>
+				<Wrap px='1rem' spacing={4} justify='center'>
+					{contents.map((picture, index) => (
+						<WrapItem
+							key={index}
+							boxShadow='base'
+							rounded='20px'
+							overflow='hidden'
+							bg='white'
+							lineHeight='0'
+							_hover={{ boxShadow: 'dark-lg' }}
+						>
+							<Image
+								src={picture.image}
+								key={index}
+								alt={picture.title}
+								width={630}
+								height={450}
 							/>
-							</div>
-						<style jsx>{`
-							.title {
-								position: fixed;
-								bottom: 100px;
-								left: 50px;
-								z-index: 2;
-								color: #fff;
-								font-family: 'Dosis', sans-serif;
-								font-size: 3rem;
-								overflow: hidden;
-							}
-						`}</style>
-					</section>
-				))}
-			</div>
-		</div>
+						</WrapItem>
+					))}
+				</Wrap>
+
+		</Box>
 	)
 }
 
-export default PortfolioNew
+export default Portfolio
