@@ -15,7 +15,7 @@ import commercial10 from '../public/assets/commercial-10.webp'
 
 const contents = [
 	{
-		title: 'Проєкт намбер 1',
+		title: 'Проєкт намбер 10',
 		image: commercial1,
 	},
 	{
