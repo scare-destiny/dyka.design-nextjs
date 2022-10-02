@@ -1,15 +1,6 @@
-import {
-	chakra,
-	Box,
-	Container,
-	useColorModeValue,
-	Wrap,
-	WrapItem,
-} from '@chakra-ui/react'
-import { useState } from 'react'
+import { Heading, Box, Container, Wrap, WrapItem } from '@chakra-ui/react'
 import Image from 'next/image'
-import styles from './About.module.css'
-
+import Link from 'next/link'
 
 const Portfolio = (props) => {
 	const { index, images, heading, subheading } = props
@@ -19,7 +10,10 @@ const Portfolio = (props) => {
 	return (
 		<Box p={4} overflow='hidden' minH='100vh'>
 			<Container pb={10} align='center'>
-				<chakra.h1
+				<Heading as='h1' size='4xl' color='yellow.700'>
+					{heading}
+				</Heading>
+				{/* <chakra.h1
 					py={5}
 					fontSize={48}
 					fontFamily={'Work Sans'}
@@ -36,7 +30,7 @@ const Portfolio = (props) => {
 					color={useColorModeValue('gray.500', 'gray.400')}
 				>
 					{subheading}
-				</chakra.h2>
+				</chakra.h2> */}
 			</Container>
 			<Wrap px='1rem' spacing={4} justify='center'>
 				{images.map((picture, index) => (
@@ -49,13 +43,17 @@ const Portfolio = (props) => {
 						lineHeight='0'
 						_hover={{ boxShadow: 'dark-lg' }}
 					>
-						<Image
-							src={picture.image}
-							key={index}
-							alt={picture.title}
-							width={630}
-							height={450}
-						/>
+						<Link href={`/commercial/photos/${picture.id}`} target='_blank'>
+							<a target='_blank'>
+								<Image
+									src={picture.image}
+									key={index}
+									alt={picture.title}
+									width={630}
+									height={450}
+								/>
+							</a>
+						</Link>
 					</WrapItem>
 				))}
 			</Wrap>
