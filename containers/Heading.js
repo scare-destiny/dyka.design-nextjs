@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import styles from './Heading.module.css'
 
 const Heading = ({text}) => {
