@@ -18,7 +18,7 @@ const Menu = () => {
 			<p>
 				<Link href='/'>Main</Link>
 			</p>
-			<p>
+			{/* <p>
 				{' '}
 				<Link href='/residential'>Residenital</Link>{' '}
 			</p>
@@ -27,7 +27,7 @@ const Menu = () => {
 			</p>
 			<p>
 				<Link href='/art'>Art</Link>
-			</p>
+			</p> */}
 			<p>
 				<Link href='/about'>About</Link>
 			</p>

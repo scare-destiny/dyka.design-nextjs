@@ -1,4 +1,4 @@
-import { BiHeart } from 'react-icons/bi'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
 import {
 	Box,
@@ -23,7 +23,7 @@ const MenuLinks = () => {
 			<MenuItem>
 				<Link href='/'>Home</Link>
 			</MenuItem>
-			<MenuItem>
+			{/* <MenuItem>
 				<Link href='/residential'>Residential</Link>
 			</MenuItem>
 			<MenuItem>
@@ -31,7 +31,7 @@ const MenuLinks = () => {
 			</MenuItem>
 			<MenuItem>
 				<Link href='/art'>Art</Link>
-			</MenuItem>
+			</MenuItem> */}
 			<MenuItem>
 				<Link href='/about'>About</Link>
 			</MenuItem>
@@ -66,7 +66,7 @@ const Navbar = () => {
 									cursor={'pointer'}
 									minW={0}
 								>
-									<Avatar
+									<HamburgerIcon
 										size={'sm'}
 										src={'https://avatars.dicebear.com/api/male/username.svg'}
 									/>
@@ -74,9 +74,6 @@ const Navbar = () => {
 								<MenuList alignItems={'center'}>
 									<MenuLinks />
 									<MenuDivider />
-									<Center>
-										<BiHeart size={20} />
-									</Center>
 								</MenuList>
 							</Menu>
 						</Stack>

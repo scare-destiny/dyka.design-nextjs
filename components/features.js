@@ -1,7 +1,6 @@
 import {
 	Container,
 	SimpleGrid,
-	Image,
 	Flex,
 	Heading,
 	Text,
@@ -10,7 +9,12 @@ import {
 	Icon,
 	useColorModeValue,
 } from '@chakra-ui/react'
-import { IoAnalyticsSharp, IoLogoBitcoin, IoSearchSharp } from 'react-icons/io5'
+import Image from 'next/image'
+import { MdArchitecture } from 'react-icons/md'
+import { BiPhotoAlbum } from 'react-icons/bi'
+import { SiCoronarenderer } from 'react-icons/si'
+import { GiSelfLove } from 'react-icons/gi'
+import image from '../public/assets/about.jpeg'
 
 const Feature = ({ text, icon, iconBg }) => {
 	return (
@@ -45,12 +49,12 @@ const Features = () => {
 						alignSelf={'flex-start'}
 						rounded={'md'}
 					>
-						Our Story
+						My Story
 					</Text>
-					<Heading>A digital Product design agency</Heading>
+					<Heading>Interior architect and designer</Heading>
 					<Text color={'gray.500'} fontSize={'lg'}>
-						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-						eirmod tempor invidunt ut labore
+						I fell in love with design when I was a teenager. Time flies and I enjoy
+						it more and more with each breath. All my work comes with:
 					</Text>
 					<Stack
 						spacing={4}
@@ -59,19 +63,24 @@ const Features = () => {
 						}
 					>
 						<Feature
-							icon={<Icon as={IoAnalyticsSharp} color={'yellow.500'} w={5} h={5} />}
+							icon={<Icon as={MdArchitecture} color={'yellow.500'} w={5} h={5} />}
 							iconBg={useColorModeValue('yellow.100', 'yellow.900')}
-							text={'Business Planning'}
+							text={'Detailed Plans'}
 						/>
 						<Feature
-							icon={<Icon as={IoLogoBitcoin} color={'green.500'} w={5} h={5} />}
+							icon={<Icon as={BiPhotoAlbum} color={'green.500'} w={5} h={5} />}
 							iconBg={useColorModeValue('green.100', 'green.900')}
-							text={'Financial Planning'}
+							text={'Moodboards'}
 						/>
 						<Feature
-							icon={<Icon as={IoSearchSharp} color={'purple.500'} w={5} h={5} />}
+							icon={<Icon as={SiCoronarenderer} color={'purple.500'} w={5} h={5} />}
 							iconBg={useColorModeValue('purple.100', 'purple.900')}
-							text={'Market Analysis'}
+							text={'Shopping Lists With Photorealistic Visualizations'}
+						/>
+						<Feature
+							icon={<Icon as={GiSelfLove} color={'red.500'} w={5} h={5} />}
+							iconBg={useColorModeValue('red.100', 'red.900')}
+							text={'Pinch Of Love And Care'}
 						/>
 					</Stack>
 				</Stack>
@@ -80,8 +89,10 @@ const Features = () => {
 						rounded={'md'}
 						alt={'feature image'}
 						src={
-							'https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+							'https://instagram.fifo1-1.fna.fbcdn.net/v/t51.2885-15/271263932_682214743150701_82640951494844104_n.jpg?stp=dst-jpg_e35_p720x720&_nc_ht=instagram.fifo1-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=CslGwMEVe6UAX9DcJh9&tn=4IjaF3FxEEpQf_zM&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjc0MzY5OTc5Njk0MTYwNjA0NQ%3D%3D.2-ccb7-5&oh=00_AfD8MXfBd9VBloXq0_F6ryPKs9QFtPRk5-gZwdM3bnrMVQ&oe=636D4430&_nc_sid=30a2ef'
 						}
+						width='580'
+						height='730'
 						objectFit={'cover'}
 					/>
 				</Flex>

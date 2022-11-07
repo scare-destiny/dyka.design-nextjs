@@ -12,20 +12,40 @@ import {
 } from '@chakra-ui/react'
 
 // TODO Rewrite Form Without Dependencies
-const ContactForm = () =>  {
+const ContactForm = () => {
 	const {
 		handleSubmit,
 		register,
 		formState: { errors, isSubmitting },
 	} = useForm()
 
-	function onSubmit(values) {
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				alert(JSON.stringify(values, null, 2))
-				resolve()
-			}, 3000)
-		})
+	// function onSubmit(values) {
+	// 	return new Promise((resolve) => {
+	// 		setTimeout(() => {
+	// 			alert(JSON.stringify(values, null, 2))
+	// 			resolve()
+	// 		}, 3000)
+	// 	})
+	// }
+
+	const onSubmit = async (data) => {
+		try {
+			const response = await fetch(
+				'https://script.google.com/macros/s/AKfycbz9WEEwSceX1mSQhZeD0Amb8BjFNeOr8Owo9Hhxk2mAV_DJPhRgFvkvbRiA4nA82Ucl/exec',
+				{
+					method: 'POST',
+					cache: 'no-cache',
+					mode: 'no-cors',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				}
+			)
+			alert('form submitted!')
+		} catch (err) {
+			console.log(err)
+		}
 	}
 
 	return (
@@ -36,10 +56,12 @@ const ContactForm = () =>  {
 				</Heading>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<FormControl isInvalid={errors.name}>
-						<FormLabel pt={2} htmlFor='name'>First Name</FormLabel>
+						<FormLabel pt={2} htmlFor='name'>
+							First Name
+						</FormLabel>
 						<Input
 							id='name'
-							placeholder='name'
+							placeholder='Your name'
 							{...register('name', {
 								required: 'Please share your name',
 								minLength: { value: 4, message: 'Minimum length should be 4' },
@@ -48,10 +70,12 @@ const ContactForm = () =>  {
 						<FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
 					</FormControl>
 					<FormControl isInvalid={errors.mail}>
-						<FormLabel pt={2} htmlFor='mail'>Email address</FormLabel>
+						<FormLabel pt={2} htmlFor='mail'>
+							Email address
+						</FormLabel>
 						<Input
 							id='mail'
-							placeholder='email'
+							placeholder='Email address'
 							{...register('mail', {
 								required: 'Email address is required',
 								minlength: { value: 4, message: 'Minimum lenght should be 4' },
@@ -64,7 +88,9 @@ const ContactForm = () =>  {
 						<FormErrorMessage>{errors.mail && errors.mail.message}</FormErrorMessage>
 					</FormControl>
 					<FormControl isInvalid={errors.text}>
-						<FormLabel pt={2} htmlFor='text'>Info</FormLabel>
+						<FormLabel pt={2} htmlFor='text'>
+							Info
+						</FormLabel>
 						<Textarea
 							id='text'
 							placeholder='I want a new design for my...'
