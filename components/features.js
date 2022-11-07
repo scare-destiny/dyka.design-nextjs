@@ -88,9 +88,7 @@ const Features = () => {
 					<Image
 						rounded={'md'}
 						alt={'feature image'}
-						src={
-							'https://instagram.fifo1-1.fna.fbcdn.net/v/t51.2885-15/271263932_682214743150701_82640951494844104_n.jpg?stp=dst-jpg_e35_p720x720&_nc_ht=instagram.fifo1-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=CslGwMEVe6UAX9DcJh9&tn=4IjaF3FxEEpQf_zM&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjc0MzY5OTc5Njk0MTYwNjA0NQ%3D%3D.2-ccb7-5&oh=00_AfD8MXfBd9VBloXq0_F6ryPKs9QFtPRk5-gZwdM3bnrMVQ&oe=636D4430&_nc_sid=30a2ef'
-						}
+						src={image}
 						width='580'
 						height='730'
 						objectFit={'cover'}

@@ -11,8 +11,8 @@ const Contact = () => {
 				priority={true}
 				alt='art image'
 				backgroundPosition={'center center'}
-				text='test'
-				buttonText='Contact Me'
+				text='Work With Me'
+				buttonText='Contact'
 			/>
 			<ContactForm />
 			<Footer
