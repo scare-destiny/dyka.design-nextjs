@@ -68,18 +68,18 @@ const Features = () => {
 							text={'Detailed Plans'}
 						/>
 						<Feature
-							icon={<Icon as={BiPhotoAlbum} color={'green.500'} w={5} h={5} />}
-							iconBg={useColorModeValue('green.100', 'green.900')}
+							icon={<Icon as={BiPhotoAlbum} color={'yellow.500'} w={5} h={5} />}
+							iconBg={useColorModeValue('yellow.100', 'yellow.900')}
 							text={'Moodboards'}
 						/>
 						<Feature
-							icon={<Icon as={SiCoronarenderer} color={'purple.500'} w={5} h={5} />}
-							iconBg={useColorModeValue('purple.100', 'purple.900')}
-							text={'Shopping Lists With Photorealistic Visualizations'}
+							icon={<Icon as={SiCoronarenderer} color={'yellow.500'} w={5} h={5} />}
+							iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+							text={'Photorealistic Visualizations'}
 						/>
 						<Feature
-							icon={<Icon as={GiSelfLove} color={'red.500'} w={5} h={5} />}
-							iconBg={useColorModeValue('red.100', 'red.900')}
+							icon={<Icon as={GiSelfLove} color={'yellow.500'} w={5} h={5} />}
+							iconBg={useColorModeValue('yellow.100', 'yellow.900')}
 							text={'Pinch Of Love And Care'}
 						/>
 					</Stack>
@@ -89,8 +89,8 @@ const Features = () => {
 						rounded={'md'}
 						alt={'feature image'}
 						src={image}
-						width='580'
-						height='730'
+						width='720'
+						height='840'
 						objectFit={'cover'}
 					/>
 				</Flex>
