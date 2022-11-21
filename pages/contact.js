@@ -1,9 +1,19 @@
-import { Navbar, ContactForm, Footer, BackgroundImage } from '../components'
+import {
+	Navbar,
+	ContactForm,
+	SEO,
+	Footer,
+	BackgroundImage,
+} from '../components'
 import image from '../public/assets/commercial-4.webp'
 
 const Contact = () => {
 	return (
 		<>
+			<SEO
+				pageTitle='Dyka Design - Contact Me'
+				pageDescription='Ready to turn your idea into reality? Write to me and let&#39;s chat.'
+			/>
 			<Navbar />
 			<BackgroundImage
 				// TODO ADD INTERNAL IMAGE INSTEAD OF DOWNLOADED
