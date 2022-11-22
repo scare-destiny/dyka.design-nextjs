@@ -6,6 +6,7 @@ import {
 	Footer,
 	Testimonials,
 	Gallery,
+	Animation,
 	SEO,
 } from '../components'
 import image from '../public/assets/commercial-3.webp'
@@ -19,15 +20,23 @@ export default function Home() {
 			/>
 			<Navbar />
 			{/* // TODO ADD INTERNAL IMAGE INSTEAD OF DOWNLOADED */}
-			<BackgroundImage
-				image={image}
-				alt='le jardin shop'
-				backgroundPosition={'center center'}
-				priority={true}
-			/>
-			<About />
-			<Testimonials />
-			<Gallery />
+			<Animation>
+				<BackgroundImage
+					image={image}
+					alt='le jardin shop'
+					backgroundPosition={'center center'}
+					priority={true}
+				/>
+			</Animation>
+			<Animation>
+				<About />
+			</Animation>
+			<Animation>
+				<Testimonials />
+			</Animation>
+			<Animation>
+				<Gallery />
+			</Animation>
 			<Footer />
 		</>
 	)

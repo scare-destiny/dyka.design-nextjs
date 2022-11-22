@@ -1,4 +1,4 @@
-import { Navbar, Features, SEO, Footer } from '../components'
+import { Navbar, Features, SEO, Animation, Footer } from '../components'
 
 const About = () => {
 	return (
@@ -8,7 +8,9 @@ const About = () => {
 				pageDescription='Read more about my story and work ethic. '
 			/>
 			<Navbar />
-			<Features />
+			<Animation>
+				<Features />
+			</Animation>
 			<Footer />
 		</>
 	)
